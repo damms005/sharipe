@@ -1,0 +1,30 @@
+name: Linux OS Build and Publish
+run-name: Linux OS Build and Publish
+
+# run on push to the master branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Electron app build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Quasar globally
+        run: npm i -g @quasar/cli
+
+      - name: Check out Git repository
+        uses: actions/checkout@v4
+
+      - name: Install application dependencies
+        run: npm i
+
+      - name: Build Electron app
+        run: quasar build -m electron -T linux
