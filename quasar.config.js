@@ -211,6 +211,8 @@ module.exports = configure(function (/* ctx */) {
           releaseType: "release",
         },
       },
+
+      unPackagedInstallParams:['install']
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/developing-browser-extensions/configuring-bex
